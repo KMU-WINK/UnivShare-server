@@ -39,8 +39,28 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # 사용자 계정 관련 앱
     'accounts',
-    'rest_framework'
+    # 설치한 라이브러리
+    'rest_framework',                           # Django를 REST API 형태로 사용 가능하도록 제공
+    'rest_framework.authtoken',                 
+    'dj_rest_auth',                             # REST API 형태로 제공하는 로그인, 비밀번호 찾기 등의 기능 제공
+    'django.contrib.sites',
+    'allauth',                                  # 회원가입 기능 제공
+    'allauth.account',
+    'allauth.socialaccount',
+    'dj_rest_auth.registration',
 ]
+
+REST_USE_JWT = True                             # JWT 사용 여부
+JWT_AUTH_COOKIE = 'my-app-auth'                 # 호출할 cookie key 값
+JWT_AUTH_REFRESH_COOKIE = 'my-refresh-token'    # refresu token cookie key 값 (사용시)
+
+SITE_ID = 1                                     # 해당 도메인의 id
+ACCOUNT_UNIQUE_EMAIL = True                     # user email unique 사용 여부
+ACCOUNT_USER_MODEL_USERNAME_FIELD = None        # User username type
+ACCOUNT_USERNAME_REQUIRED = False               # User username 필수 여부
+ACCOUNT_EMAIL_REQUIRED = True                   # User email 필수 여부
+ACCOUNT_AUTHENTICATION_METHOD = 'email'         # 로그인 인증 수단 (email 인증을 사용)
+ACCOUNT_EMAIL_VERIFICATION = 'none'             # Email 인증 필수 여부
 
 AUTH_USER_MODEL = 'accounts.User'
 
