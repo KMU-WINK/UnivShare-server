@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'api',
+    # 사용자 계정 관련 앱
+    'accounts',
     'rest_framework'
 ]
 
